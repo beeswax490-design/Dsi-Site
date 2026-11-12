@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>DSi Home Portal</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #182848;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+}
+
+h1 {
+    color: #66ccff;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #cccccc;
+    margin-top: 5px;
+}
+
+.container {
+    max-width: 750px;
+    margin: auto;
+}
+
+#clock {
+    font-size: 16px;
+    margin: 15px;
+}
+
+#screen {
+    background: #eeeeee;
+    color: #222222;
+    padding: 25px;
+    margin: 15px auto;
+    border: 3px solid #66ccff;
+    border-radius: 8px;
+    min-height: 110px;
+    max-width: 600px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 650px;
+    margin: auto;
+}
+
+button {
+    background: #2878bb;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 16px;
+    min-width: 130px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #55aaff;
+}
+
+button:active {
+    background: #114477;
+}
+
+footer {
+    margin-top: 30px;
+    color: #aaaaaa;
+    font-size: 12px;
+}
+
+/* Computer screens */
+@media screen and (min-width: 700px) {
+    body {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    #screen {
+        font-size: 20px;
+        padding: 35px;
+    }
+
+    button {
+        min-width: 180px;
+        padding: 18px;
+        font-size: 18px;
+    }
+}
+
+/* Small screens like Nintendo DSi */
+@media screen and (max-width: 400px) {
+    body {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    #screen {
+        padding: 12px;
+        margin: 8px auto;
+        min-height: 75px;
+    }
+
+    button {
+        min-width: 110px;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .buttons {
+        gap: 5px;
+    }
+}
+</style>
+
+<script type="text/javascript">
+
+function message(txt) {
+    document.getElementById("screen").innerHTML = txt;
+}
+
+function clock() {
+    var d = new Date();
+
+    document.getElementById("clock").innerHTML =
+        d.toLocaleTimeString();
+
+    setTimeout(clock, 1000);
+}
+
+function theme(color) {
+    document.body.style.background = color;
+}
+
+</script>
+</head>
+
+<body onload="clock()">
+
+<div class="container">
+
+<h1>DSi HOME</h1>
+
+<p class="subtitle">
+Nintendo DS Internet Portal
+</p>
+
+<div id="clock">Loading clock...</div>
+
+<div id="screen">
+    <h2>Welcome!</h2>
+    Welcome to the DSi Home Portal.
+    <br>
+    Select something below!
+</div>
+
+<div class="buttons">
+
+<button onclick="message('Hello from your Nintendo DSi!')">
+Hello
+</button>
+
+<button onclick="message('Welcome to the DSi Home Portal!')">
+About
+</button>
+
+<button onclick="message('You found the secret DSi page!')">
+Secret
+</button>
+
+<button onclick="theme('#004400')">
+Green Theme
+</button>
+
+<button onclick="theme('#182848')">
+Blue Theme
+</button>
+
+<button onclick="theme('#481848')">
+Purple Theme
+</button>
+
+</div>
+
+<footer>
+DSi Web Portal - 2026
+<br>
+Designed for Nintendo DSi and Computers
+</footer>
+
+</div>
+
+</body>
+</html>
